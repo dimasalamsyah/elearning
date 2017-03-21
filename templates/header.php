@@ -1,5 +1,11 @@
 <?php
+session_start();
 $link = "http://localhost:8080/elearning/";
+
+if(!isset($_SESSION['id'])){
+  header("location: ".$link."login.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +26,14 @@ $link = "http://localhost:8080/elearning/";
 
 
 </head>
+
+<style>
+  .aktif{
+    background-color: #2966a3;
+  }
+</style>
+
+
 <body>
 
 
@@ -36,9 +50,22 @@ $link = "http://localhost:8080/elearning/";
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="<?=$link?>templates/soal.php">Soal</a></li>
+        <!-- <li><a href="<?=$link?>templates/soal.php">Soal</a></li> -->
+
       </ul>
+      <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
+        <li id="c" class="dropdown" style="color:white; font-family:arial; padding-top: 9px; padding-bottom: 11px;">
+            <span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right:10px;">
+              <?=$_SESSION['nama']?>
+              <img class="img-circle"  src="http://graph.facebook.com/<?=$_SESSION['id']?>/picture" style="width:30px; height:30px; margin-left:5px;">
+            </span>
+            
+            <ul class="dropdown-menu" style="background-color:white;">
+                <li class="login" id="" style=""><a href=""><span class="glyphicon glyphicon-log-out" style="margin-right:5px;"></span>Logout</a></li>
+            </ul>
+        </li>
+      </ul>
+
     </div><!-- /.nav-collapse -->
   </div><!-- /.container -->
 </nav><!-- /.navbar -->

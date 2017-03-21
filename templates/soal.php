@@ -9,7 +9,7 @@
 	  <div class="panel-body">
 	    
 	  <!-- form -->
-	  	<form id="formSoal" method="post">
+	  	<form id="formSoal" method="post" action="soal_save.php" enctype="multipart/form-data">
 		  <div class="form-group">
 		    <label for="">Pilih Pelajaran</label>
 		    <select class="form-control selectpicker" name="pelajaran">
@@ -20,7 +20,7 @@
 		  </div>
 		  <div class="form-group">
 		    <label for="">Pertanyaan</label>
-		    <textarea class="form-control" rows="3" name="pertnyaan"></textarea>
+		    <textarea class="form-control" rows="3" name="pertanyaan"></textarea>
 		  </div>
 		  <div class="form-group">
 		    <label for="">Pilihan Jawaban</label>
@@ -30,6 +30,15 @@
 		    <br>
 		    <button type="button" class="btn btn-default" id="addJawaban">Tambah Pilihan Jawaban</button>
 		    <button type="button" class="btn btn-default" id="finishJawaban">tes</button>
+		  </div>
+		  <div class="form-group">
+		    <label for="">Pilih Jawaban Yang Benar</label>
+		    <select class="form-control selectpicker" name="jawaban">
+			  <option>A</option>
+			  <option>B</option>
+			  <option>C</option>
+			  <option>D</option>
+			</select>
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputFile">Keterangan Penyelesaian Soal</label>
@@ -44,6 +53,13 @@
 	</div>
 
 </div>
+
+<div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
+  <div class="list-group">
+    <?php include 'side_bar.php'; ?>
+  </div>
+</div>
+
 
 <script>
 
@@ -69,25 +85,47 @@
 	    });
 	    
 	    $("#finishJawaban").click(function(){
-
+	    	console.log($("#fileGambar").val());
 	    });
 
-	    $("#formSoal").submit(function(e) {
+	    /*$("#formSoal2").submit(function(e) {
 	    	e.preventDefault();
-	    	var data = $( this ).serialize();
-	    	window.location.href = 'soal_save.php?'+ data;
+	    	var data = new FormData(this);
+	    	//window.location.href = 'soal_save.php?'+ data;
 
-	    	/*$.ajax({
+	    	$.ajax({
 	           type: "POST",
-	           url: 'coba1.php',
+	           url: 'soal_save.php',
 	           data: data,
+	           contentType: false,
+	           cache: false,
+	           processData: false,
 	           success: function(data)
 	           {
-
+	           		console.log(data);
 	           }
-	        });*/
+	        });
 	
 	    });
+
+	    $("#formSoal1").on('submit',(function(e){
+
+	        e.preventDefault();
+	        $.ajax({
+	          url:'soal_save.php',
+	          type:'POST',
+	          data: new FormData(this),
+	          contentType: false,
+	          cache: false,
+	          processData: false,
+	          success: function(data){
+	            console.log(data);
+	          },error: function(){
+	            alert();
+	          }
+	        });
+
+	    }))*/
 		
 
 	});

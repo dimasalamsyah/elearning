@@ -2,9 +2,7 @@
         <div class="col-xs-12 col-sm-9 col-sm-push-3">
 
           <div class="list-group off-li">
-            <a href="#" class="list-group-item active">yak</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
+            <?php include 'side_bar.php'; ?>
           </div>
 
           <div class="jumbotron">
@@ -33,10 +31,8 @@
 
         <div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item active">I'm the Sidebar</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
+            <?php include 'side_bar.php'; ?>
           </div>
-        </div><!--/.sidebar-offcanvas-->
+        </div>
 
       <hr>

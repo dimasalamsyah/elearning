@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,8 +134,18 @@
 		$.fblogin({
 		    fbId: '360118314383005',
 		    success: function (data) {
-		        console.log('Basic public user data returned by Facebook', data);
-		        window.location.href = "/elearning/";
+		        //console.log('Basic public user data returned by Facebook', data.name);
+		        //window.location.href = "/elearning/";
+		        //http://graph.facebook.com/userid_here/picture?type=large
+		        $.post("templates/session_set.php", {
+		        	"id": data.id,
+		        	"nama": data.name
+		        }).done(function( data ) {
+		        	//if($.trim(data)=="succses"){
+		        		window.location.href = "/elearning/";
+		        		//alert(data);
+		        	//}
+				});
 		    },
 		    error: function (error) {
 		        console.log('An error occurred.', error);
@@ -181,12 +193,10 @@
 									</div>
 								</form>
 
-								<hr>
-
 								<div class="form-group">
 									<div class="row">
 										<div class="col-md-6">
-											<button class="loginBtn loginBtn--facebook" style="width:100%" onclick="loginFB()">Login with Facebook</button>
+											<button class="loginBtn loginBtn--facebook" style="width:100%" onclick="loginFB()" id="loginFB">Login with Facebook</button>
 										</div>
 										<!-- <div class="col-md-6">
 											<button onclick="login()" class="loginBtn loginBtn--google" style="width:100%">Login with Google</button>
@@ -195,7 +205,7 @@
 									</div>
 								</div>
 
-								<form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+								<form id="register-form" action="" method="post" role="form" style="display: none;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
