@@ -1,27 +1,24 @@
 <?php include 'header.php'; ?>
 
-<div class="col-xs-12 col-sm-9 col-sm-push-3">
-
-<div style="overflow-x: scroll;"><!-- overflow -->
-
+<div class="col-md-12">
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">Daftar Soal <?=@$_GET['pelajaran']?></div>
   <!-- Table -->
-  <table class="">
+  <table class="table">
     <thead>
     	<tr>
-    		<th style="width: 100px">No</th>
-    		<th style="width: 250px">Pertanyaan</th>
-    		<th style="width: 200px">Soal A</th>
-    		<th style="width: 200px">Soal B</th>
-    		<th style="width: 200px">Soal C</th>
-    		<th style="width: 200px">Soal D</th>
-    		<th style="width: 50px">Jawaban</th>
-    		<th style="width: 100px">Ket</th>
-    		<th style="width: 50px">Gambar</th>
-    		<th style="width: 100px"></th>
+    		<th style="">No</th>
+    		<th style="">Pertanyaan</th>
+    		<th style="">Soal A</th>
+    		<th style="">Soal B</th>
+    		<th style="">Soal C</th>
+    		<th style="">Soal D</th>
+    		<th style="">Jawaban</th>
+    		<th style="">Ket</th>
+    		<th style="">Gambar</th>
+    		<th style=""></th>
     	</tr>
     </thead>
     <tbody>
@@ -49,19 +46,19 @@
     			?>
 
     			<tr>
-    				<td style="width: 100px"><?=$no ?></td>
-    				<td style="width: 250px"><?=trim($row[2]) ?></td>
-    				<td style="width: 200px"><?=trim($row[3]) ?></td>
-    				<td style="width: 200px"><?=trim($row[4]) ?></td>
-    				<td style="width: 200px"><?=trim($row[5]) ?></td>
-    				<td style="width: 200px"><?=trim($row[6]) ?></td>
-    				<td style="width: 50px"><?=trim($row[7]) ?></td>
-    				<td style="width: 100px"><?=trim($row[8]) ?></td>
-    				<td style="width: 50px"><?=trim($row[9]) ?></td>
-    				<td style="width: 100px">
+    				<td style="width: 4%"><?=$no ?></td>
+    				<td style="width: 25%"><?=trim($row[2]) ?></td>
+    				<td style="width: 10%"><?=trim($row[3]) ?></td>
+    				<td style="width: 10%"><?=trim($row[4]) ?></td>
+    				<td style="width: 10%"><?=trim($row[5]) ?></td>
+    				<td style="width: 10%"><?=trim($row[6]) ?></td>
+    				<td style="width: 5%"><?=trim($row[7]) ?></td>
+    				<td style="width: 5%"><?=trim($row[8]) ?></td>
+    				<td style="width: 5%"><?=trim($row[9]) ?></td>
+    				<td style="width: 5%">
     					
-						  <span class="btn btn-default glyphicon glyphicon-pencil" aria-hidden="true"></span>
-						  <span class="btn btn-default glyphicon glyphicon-remove" aria-hidden="true"></span>
+						  <a href="<?=$link?>templates/soal.php?id=<?=trim($row['id'])?>"><span class="glyphicon glyphicon-pencil btn-form" aria-hidden="true" ></span></a>
+						  <a href="soal_hapus.php?id=<?=trim($row['id'])?>&pelajaran=<?=@$_GET['pelajaran']?>"><span class="glyphicon glyphicon-remove btn-form" aria-hidden="true" onClick="return confirm('Yakin ingin dihapus?')"></span></a>
     					<!-- <button type="button" class="btn btn-default btn-sm">
 						</button>
 						<button type="button" class="btn btn-default btn-sm">
@@ -103,12 +100,11 @@
 
    </div>
 
-</div><!-- end overflow -->
 
-<div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
+<!-- <div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
   <div class="list-group">
-    <?php include 'side_bar.php'; ?>
+   
   </div>
-</div>
+</div> -->
 
 <?php include 'footer.php'; ?>

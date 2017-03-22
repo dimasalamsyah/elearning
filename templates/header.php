@@ -6,12 +6,23 @@ if(!isset($_SESSION['id'])){
   header("location: ".$link."login.php");
 }
 
+/*dgunakan untuk kelas aktif side_bar.php*/
+/*if(trim(@$_GE['pelajaran']=='Bahasa Indonesia' )){
+  $aktif_1 = "aktif";
+}elseif (trim(@$_GE['pelajaran']=='IPA' )) {
+  $aktif_2 = "aktif";
+}elseif (trim(@$_GE['pelajaran']=='Matematika' )) {
+  $aktif_3 = "aktif";
+}else{
+  $aktif_4 = "aktif";
+}
+*/
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home | E-Learning</title>
+	<title>E-Learning</title>
 
 	<link rel="stylesheet" type="text/css" href="<?=$link?>bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=$link?>css/style.css">
@@ -29,8 +40,28 @@ if(!isset($_SESSION['id'])){
 
 <style>
   .aktif{
-    background-color: #2966a3;
+    /*background-color: #2966a3;*/
+    background-color: #eee;
   }
+  
+/*  .navbar .nav>li>a:focus {
+    background-color: green;
+  }
+  .navbar .nav>li>a> .active {
+    background-color: green;
+  }
+
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+  background-color: red;
+}*/
+
+.navbar .nav > li.dropdown.open.active > a:hover, 
+.navbar .nav > li.dropdown.open > a
+{
+   color: #fff;
+   background-color: #006699;
+   border-color: #fff;
+}
 </style>
 
 
@@ -51,6 +82,20 @@ if(!isset($_SESSION['id'])){
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <!-- <li><a href="<?=$link?>templates/soal.php">Soal</a></li> -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Bahasa Indonesia">Bahasa Indonesia</a></li>
+            <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Ilmu Pengetahuan Alam">IPA</a></li>
+            <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Matematika">MAtematika</a></li>
+
+            <li class="divider"></li>
+
+            <li><a href="<?=$link?>templates/soal.php">Tambahkan Soal</a></li>
+            <li><a href="<?=$link?>templates/">Lihat Score</a></li>
+          </ul>
+        </li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">

@@ -1,10 +1,60 @@
-<?php include 'header.php'; ?>
+<?php 
+include 'header.php'; 
+include '../koneksi.php';
 
-<div class="col-xs-12 col-sm-9 col-sm-push-3">
+$id = trim(@$_GET['id']) ?: '';
+$q = "SELECT * FROM quiz where id='$id' ";
+$sql = mysqli_query($conn, $q);
+$row = mysqli_fetch_array($sql);
+
+$kategori = trim($row['kategori']);
+$pertanyaan = trim($row['pertanyaan']);
+$soal_A = trim($row['soal_A']);
+$soal_B = trim($row['soal_B']);
+$soal_C = trim($row['soal_C']);
+$soal_D = trim($row['soal_D']);
+$jawaban = trim($row['jawaban']);
+$keterangan = trim($row['keterangan']);
+$gambar = trim($row['gambar']);
+
+
+if($id==''){
+	$title = "Tambah";
+	$infoGambar = "Upload gambar jika ada.";
+	$disabledGambar = "";
+}else{
+	$title = "Edit";
+	$infoGambar = "Gambar tidak bisa di edit!.";
+	$disabledGambar = "disabled='disabled'";
+}
+
+/*untuk edit di form soal*/
+if($kategori=='Matematika') {
+	$selected_3 = "selected='selected'";
+}elseif ($kategori=='Ilmu Pengetahuan Alam') {
+	$selected_2 = "selected='selected'";
+}else{
+	$selected_1 = "selected='selected'";
+}
+
+if($jawaban=='B') {
+	$selectedJwb_2 = "selected='selected'";
+}elseif ($jawaban=='C') {
+	$selectedJwb_3 = "selected='selected'";
+}elseif ($jawaban=='D') {
+	$selectedJwb_4 = "selected='selected'";
+}else{
+	$selectedJwb_1 = "selected='selected'";
+}
+
+
+?>
+
+<div class="col-md-12">
 
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-	    <h3 class="panel-title">Tambahkan Soal</h3>
+	    <h3 class="panel-title"><?=$title?> Soal</h3>
 	  </div>
 	  <div class="panel-body">
 	    
@@ -13,40 +63,43 @@
 		  <div class="form-group">
 		    <label for="">Pilih Pelajaran</label>
 		    <select class="form-control selectpicker" name="pelajaran">
-			  <option>Bahasa Indonesia</option>
-			  <option>Matematika</option>
-			  <option>Ilmu Pengetahuan Alam</option>
+			  <option <?=$selected_1?>>Bahasa Indonesia</option>
+			  <option <?=$selected_2?>>Matematika</option>
+			  <option <?=$selected_3?>>Ilmu Pengetahuan Alam</option>
 			</select>
+			<input type="text" name="id" value="<?=$id?>" style="display: none"> <!-- untuk validasi ketika edit atau save -->
 		  </div>
 		  <div class="form-group">
 		    <label for="">Pertanyaan</label>
-		    <textarea class="form-control" rows="3" name="pertanyaan"></textarea>
+		    <textarea class="form-control" rows="3" name="pertanyaan"><?=$pertanyaan?></textarea>
 		  </div>
 		  <div class="form-group">
 		    <label for="">Pilihan Jawaban</label>
 		    <div id="jawabCol">
-		    	<textarea class="form-control" rows="3" id="A" name="A"></textarea>
+		    	<textarea class="form-control" rows="3" id="A" name="A" placeholder="Soal A"><?=$soal_A?></textarea>
+		    	<textarea class="form-control" rows="3" id="A" name="B" style='margin-top: 10px;' placeholder="Soal B"><?=$soal_B?></textarea>
+		    	<textarea class="form-control" rows="3" id="A" name="C" style='margin-top: 10px;' placeholder="Soal C"><?=$soal_C?></textarea>
+		    	<textarea class="form-control" rows="3" id="A" name="D" style='margin-top: 10px;' placeholder="Soal D"><?=$soal_D?></textarea>
 		    </div>
 		    <br>
-		    <button type="button" class="btn btn-default" id="addJawaban">Tambah Pilihan Jawaban</button>
-		    <button type="button" class="btn btn-default" id="finishJawaban">tes</button>
+		    <!-- <button type="button" class="btn btn-default" id="addJawaban">Tambah Pilihan Jawaban</button> -->
 		  </div>
 		  <div class="form-group">
 		    <label for="">Pilih Jawaban Yang Benar</label>
 		    <select class="form-control selectpicker" name="jawaban">
-			  <option>A</option>
-			  <option>B</option>
-			  <option>C</option>
-			  <option>D</option>
+			  <option <?=$selectedJwb_1?> >A</option>
+			  <option <?=$selectedJwb_3?> >B</option>
+			  <option <?=$selectedJwb_4?> >C</option>
+			  <option <?=$selectedJwb_4?> >D</option>
 			</select>
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputFile">Keterangan Penyelesaian Soal</label>
-		    <textarea class="form-control" rows="3" name="keterangan"></textarea>
-		    <input type="file" id="fileGambar" name="fileGambar" style="margin-top: 10px;">
-		    <p class="help-block">Upload gambar jika ada.</p>
+		    <textarea class="form-control" rows="3" name="keterangan"><?=$keterangan?></textarea>
+		    <input type="file" id="fileGambar" name="fileGambar" style="margin-top: 10px;" value="c:\fakepath\Logo HUT RI ke 71.png" <?=$disabledGambar?>>
+		    <p class="help-block"><?=$infoGambar?></p>
 		  </div>
-		  <button type="submit" class="btn btn-default">Finish!</button>
+		  <button type="submit" class="btn btn-default">Selesai</button>
 		</form>
 
 	  </div>
@@ -54,17 +107,17 @@
 
 </div>
 
-<div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
+<!-- <div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
   <div class="list-group">
-    <?php include 'side_bar.php'; ?>
+    
   </div>
 </div>
-
+ -->
 
 <script>
 
 	$(document).ready(function(){
-		var index = 0;
+/*		var index = 0;
 		var indexPlus = 1;
 		var huruf = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
@@ -80,13 +133,11 @@
 	        }
 	        index++;
 	        indexPlus++;
-
-	        //console.log("terkhir" + huruf[index]);
 	    });
-	    
-	    $("#finishJawaban").click(function(){
+	    */
+	    /*$("#finishJawaban").click(function(){
 	    	console.log($("#fileGambar").val());
-	    });
+	    });*/
 
 	    /*$("#formSoal2").submit(function(e) {
 	    	e.preventDefault();

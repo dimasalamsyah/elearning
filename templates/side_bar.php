@@ -1,9 +1,9 @@
 <span href="#" class="list-group-item active">Menu</span>
 
-<span href="<?=$link?>templates/soal.php"" class="list-group-item" style=""><b>Soal</b></span>
-<a href="soal_data.php?pelajaran=Bahasa Indonesia" class="list-group-item" style="">B. Indonesia</a>
-<a href="soal_data.php?pelajaran=Ilmu Pengetahuan Alam" class="list-group-item" style="">IPA</a>
-<a href="soal_data.php?pelajaran=Matematika" class="list-group-item" style="">Matematika</a>
+<span class="list-group-item" style=""><b>Soal</b></span>
+<a href="<?=$link?>templates/quiz.php?pelajaran=Bahasa Indonesia" class="list-group-item <?php if(trim($_GET['pelajaran']=='Bahasa Indonesia')){ echo "aktif"; } ?> " style="">B. Indonesia</a>
+<a href="<?=$link?>templates/quiz.php?pelajaran=Ilmu Pengetahuan Alam" class="list-group-item <?php if(trim($_GET['pelajaran']=='Ilmu Pengetahuan Alam')){ echo "aktif"; } ?>" style="">IPA</a>
+<a href="<?=$link?>templates/quiz.php?pelajaran=Matematika" class="list-group-item <?php if(trim($_GET['pelajaran']=='Matematika')){ echo "aktif"; } ?>" style="">Matematika</a>
 
 <a href="<?=$link?>templates/soal.php"" class="list-group-item"><b>Tambahkan Soal</b></a>
 <a href="#" class="list-group-item"><b>Lihat Score</b></a>

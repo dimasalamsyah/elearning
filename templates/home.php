@@ -13,17 +13,17 @@
             <div class="col-xs-6 col-lg-4">
               <h2>Bahasa Indonesia</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-default" href="templates/quiz.php?pelajaran=ipa" role="button">Uji! &raquo;</a></p>
+              <p><a class="btn btn-default" href="templates/quiz.php?pelajaran=Bahasa Indonesia" role="button">Uji! &raquo;</a></p>
             </div><!--/.col-xs-6.col-lg-4-->
             <div class="col-xs-6 col-lg-4">
               <h2>IPA</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+              <p><a class="btn btn-default" href="templates/quiz.php?pelajaran=Ilmu Pengetahuan Alam" role="button">Uji &raquo;</a></p>
             </div><!--/.col-xs-6.col-lg-4-->
             <div class="col-xs-6 col-lg-4">
               <h2>Matematika</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+              <p><a class="btn btn-default" href="templates/quiz.php?pelajaran=Matematika" role="button">Uji! &raquo;</a></p>
             </div><!--/.col-xs-6.col-lg-4-->
 
           </div><!--/row-->
