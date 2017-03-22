@@ -14,7 +14,7 @@ while ($row = mysqli_fetch_array($sql)) {
 	?>
 
 	<div class="jumbotron" style="height: auto;">
-	  <h4><span style="margin-right: 15px;"><?=$no?>.</span><span>Isi jawaban berikut dengan benar!</span></h4>
+	  <h4><span style="margin-right: 15px;"><?=$no?>.</span><span><?=$row['pertanyaan']?></span></h4>
 	  <p>
 	  	<div class="radio">
 		  <label>
