@@ -83,11 +83,11 @@ if(!isset($_SESSION['id'])){
       <ul class="nav navbar-nav">
         <!-- <li><a href="<?=$link?>templates/soal.php">Soal</a></li> -->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Soal
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Bahasa Indonesia">Bahasa Indonesia</a></li>
-            <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Ilmu Pengetahuan Alam">IPA</a></li>
+            <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Ilmu Pengetahuan Alam">Ilum Pengetahuan Alam</a></li>
             <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Matematika">MAtematika</a></li>
 
             <li class="divider"></li>
