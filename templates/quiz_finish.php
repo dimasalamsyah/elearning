@@ -30,7 +30,7 @@ $salah = $num1 - $num;
 
 	  </p>
 	  <a href="quiz_result.php?pelajaran=<?=$pelajaran?>" class="btn btn-warning btn-lg">Lihat Jawaban Kamu</a>
-	  <a href="button" class="btn btn-success btn-lg">Penjelasan</a>
+	  <a href="quiz_penjelasan.php?pelajaran=<?=$pelajaran?>" class="btn btn-success btn-lg">Penjelasan</a>
 	</div>
 
 </div>
