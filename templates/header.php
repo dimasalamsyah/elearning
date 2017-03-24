@@ -89,14 +89,17 @@ if(!isset($_SESSION['id'])){
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a><b>Daftar Soal</b></a></li>
+            <li class="divider"></li>
             <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Bahasa Indonesia">Bahasa Indonesia</a></li>
-            <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Ilmu Pengetahuan Alam">IPA</a></li>
-            <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Matematika">MAtematika</a></li>
+            <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Ilmu Pengetahuan Alam">Ilum Pengetahuan Alam</a></li>
+            <li><a href="<?=$link?>templates/soal_data.php?pelajaran=Matematika">Matematika</a></li>
 
             <li class="divider"></li>
 
-            <li><a href="<?=$link?>templates/soal.php">Tambahkan Soal</a></li>
-            <li><a href="<?=$link?>templates/">Lihat Score</a></li>
+            <li><a href="<?=$link?>templates/soal.php"><b>Tambahkan Soal</b></a></li>
+            <li><a href="<?=$link?>templates/score.php"><b>Lihat Score</b></a></li>
+            <li><a href="<?=$link?>templates/komentar.php"><b>Lihat Komentar</b></a></li>
           </ul>
         </li>
 

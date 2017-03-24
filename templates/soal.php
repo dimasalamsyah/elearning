@@ -28,6 +28,9 @@ if($id==''){
 	$disabledGambar = "disabled='disabled'";
 }
 
+$selected_1="";
+$selected_2="";
+$selected_3="";
 /*untuk edit di form soal*/
 if($kategori=='Matematika') {
 	$selected_3 = "selected='selected'";
@@ -36,6 +39,11 @@ if($kategori=='Matematika') {
 }else{
 	$selected_1 = "selected='selected'";
 }
+
+$selectedJwb_1="";
+$selectedJwb_3="";
+$selectedJwb_4="";
+$selectedJwb_4="";
 
 if($jawaban=='B') {
 	$selectedJwb_2 = "selected='selected'";

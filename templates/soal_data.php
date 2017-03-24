@@ -25,7 +25,7 @@
     	
     	<?php
     		include '../koneksi.php';
-    		$batas = 2;
+    		$batas = 5;
 			$halaman = @$_GET['page'];
 			if(empty($halaman)){
 			    $posisi = 0;
