@@ -1,6 +1,9 @@
 <?php
 session_start();
-$link = "http://localhost:8080/elearning/";
+$link = "http://localhost/elearning/";
+
+/*$_SESSION['id']='22222';
+$_SESSION['nama']='yudha';*/
 
 if(!isset($_SESSION['id'])){
   header("location: ".$link."login.php");
