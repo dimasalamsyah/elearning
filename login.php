@@ -1,4 +1,13 @@
-<?php session_start(); ?>
+<?php session_start(); 
+//$warning = 'none';
+
+if( @$_GET['error']==1 ){ 
+	$warning = 'block'; 
+}else if(!isset($_GET['error'])){  
+	$warning = 'none'; 
+} 
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -177,9 +186,9 @@
 						<div class="row">
 							<div class="col-lg-12">
 
-								<form id="login-form" action="" method="post" role="form" style="display: block;">
+								<form id="login-form" action="templates/login_direct.php" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="NIS" value="">
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
@@ -191,6 +200,7 @@
 											</div>
 										</div>
 									</div>
+									<p style="color: red; display: <?=$warning?>">NIS atau Password Salah!</p>
 								</form>
 
 								<div class="form-group">
@@ -205,26 +215,27 @@
 									</div>
 								</div>
 
-								<form id="register-form" action="" method="post" role="form" style="display: none;">
+								<form id="register-form" action="templates/login_daftar.php" method="post" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="usernameDaf" id="usernameDaf" tabindex="1" class="form-control" placeholder="NIS" value="">
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Nama" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="passwordDaf" id="passwordDaf" tabindex="2" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group">
-										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+										<input type="password" name="confirmPassword" id="confirmPassword" tabindex="2" class="form-control" placeholder="Confirm Password">
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Daftar Sekarang!">
 											</div>
 										</div>
 									</div>
+
 								</form>
 
 							</div>

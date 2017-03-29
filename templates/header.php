@@ -1,25 +1,30 @@
 <?php
 session_start();
-$link = "http://localhost/elearning/";
+$link = "http://localhost:8080/elearning/";
 
 /*$_SESSION['id']='22222';
 $_SESSION['nama']='yudha';*/
+include 'koneksi.php';
 
 if(!isset($_SESSION['id'])){
   header("location: ".$link."login.php");
 }
 
-/*dgunakan untuk kelas aktif side_bar.php*/
-/*if(trim(@$_GE['pelajaran']=='Bahasa Indonesia' )){
-  $aktif_1 = "aktif";
-}elseif (trim(@$_GE['pelajaran']=='IPA' )) {
-  $aktif_2 = "aktif";
-}elseif (trim(@$_GE['pelajaran']=='Matematika' )) {
-  $aktif_3 = "aktif";
+$id = $_SESSION['id'];
+$q_admin = "SELECT level from users where nis='$id' ";
+$sql_admin = mysqli_query($conn, $q_admin);
+$row = mysqli_fetch_array($sql_admin);
+
+if( trim($row['level'])=='admin' ){
+  $admin = "block"; 
 }else{
-  $aktif_4 = "aktif";
+  $admin = "none";
 }
-*/
+
+//echo $q_admin;
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +88,8 @@ if(!isset($_SESSION['id'])){
       <a class="navbar-brand" href="<?=$link?>">E-Learning</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
+
+      <ul class="nav navbar-nav" style="display: <?=$admin?>">
         <!-- <li><a href="<?=$link?>templates/soal.php">Soal</a></li> -->
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu
@@ -104,15 +110,18 @@ if(!isset($_SESSION['id'])){
         </li>
 
       </ul>
+
+
+
       <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
         <li id="c" class="dropdown" style="color:white; font-family:arial; padding-top: 9px; padding-bottom: 11px;">
             <span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right:10px;">
               <?=$_SESSION['nama']?>
-              <img class="img-circle"  src="http://graph.facebook.com/<?=$_SESSION['id']?>/picture" style="width:30px; height:30px; margin-left:5px;">
+              <img class="img-circle"  src="<?=$_SESSION['pic']?>" style="width:30px; height:30px; margin-left:5px;">
             </span>
             
             <ul class="dropdown-menu" style="background-color:white;">
-                <li class="login" id="" style=""><a href=""><span class="glyphicon glyphicon-log-out" style="margin-right:5px;"></span>Logout</a></li>
+                <li class="login" id="" style=""><a href="<?=$link?>templates/logout.php"><span class="glyphicon glyphicon-log-out" style="margin-right:5px;"></span>Logout</a></li>
             </ul>
         </li>
       </ul>
